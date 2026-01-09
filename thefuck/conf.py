@@ -1,7 +1,9 @@
 import os
 import sys
 from warnings import warn
+
 from six import text_type
+
 from . import const
 from .system import Path
 
@@ -9,11 +11,16 @@ try:
     import importlib.util
 
     def load_source(name, pathname, _file=None):
-        module_spec = importlib.util.spec_from_file_location(name, pathname)
-        module = importlib.util.module_from_spec(module_spec)
-        module_spec.loader.exec_module(module)
+        spec = importlib.util.spec_from_file_location(name, pathname)
+        if spec is None or spec.loader is None:
+            raise ImportError
+
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[name] = module
+        spec.loader.exec_module(module)
         return module
-except ImportError:
+
+except Exception:
     from imp import load_source
 
 
