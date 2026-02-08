@@ -1,3 +1,4 @@
+from ast import arg
 import os
 import sys
 import tty
@@ -42,9 +43,9 @@ def get_key():
 
 
 def open_command(arg):
-    """ Get a shell command calling the system's generic opener."""
+    """Get a shell command calling the system's generic opener."""
     cmd = which('xdg-open') or 'open'
-    return cmd + ' ' + arg
+    return f"{cmd} {arg}"
 
 
 try:
