@@ -5,6 +5,10 @@ import termios
 import colorama
 from shutil import which
 from .. import const
+import shutil
+
+def find_executable(name):
+    return shutil.which(name)
 
 init_output = colorama.init
 
