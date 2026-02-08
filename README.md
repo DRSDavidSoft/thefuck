@@ -108,121 +108,8 @@ No behavior changes from the original. Only compatibility and code quality fixes
 
 ## Contents
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Updating](#updating)
-- [How it works](#how-it-works)
-- [Creating your own rules](#creating-your-own-rules)
-- [Settings](#settings)
-- [Third party packages with rules](#third-party-packages-with-rules)
-- [Experimental instant mode](#experimental-instant-mode)
-- [Developing](#developing)
-- [License](#license)
-
-## Requirements
-
-- Python 3.8+
-- pip or pipx
-- Supported shells:
-  - bash
-  - zsh
-  - fish
-  - powershell
-  - tcsh
-
-## Installation
-
-### Using pipx (recommended)
-
-```bash
-pipx install git+https://github.com/DRSDavidSoft/thefuck
-```
-
-### Using pip
-
-```bash
-pip install git+https://github.com/DRSDavidSoft/thefuck
-```
-
-### From local clone
-
-```bash
-git clone https://github.com/DRSDavidSoft/thefuck
-cd thefuck
-pipx install .
-```
-
-### Shell configuration
-
-After installation, configure your shell:
-
-#### Bash
-
-Add this to `.bashrc`, `.bash_profile` or `.profile`:
-
-```bash
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
-```
-
-#### Zsh
-
-Add this to `.zshrc`:
-
-```bash
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
-```
-
-#### Fish
-
-Add this to `~/.config/fish/config.fish`:
-
-```bash
-thefuck --alias | source
-
-# You can use whatever you want as an alias, like for Mondays:
-thefuck --alias FUCK | source
-```
-
-#### PowerShell
-
-Add this to your profile (usually `$PROFILE`):
-
-```powershell
-Invoke-Expression "$(thefuck --alias)"
-# You can use whatever you want as an alias, like for Mondays:
-Invoke-Expression "$(thefuck --alias FUCK)"
-```
-
-#### Tcsh
-
-Add this to `.tcshrc`:
-
-```tcsh
-eval `thefuck --alias`
-```
-
-## Updating
-
-```bash
-pipx upgrade thefuck
-```
-
-Or with pip:
-
-```bash
-pip install --upgrade git+https://github.com/DRSDavidSoft/thefuck
-```
-
-## How it works
-
-*The Fuck* attempts to match the previous command with a rule. If a match is found,
-a new command is created using the matched rule and executed. The following rules are
-enabled by default:
-
+1. [Requirements](#requirements)
+2. [Installations](#installation)
 3. [Updating](#updating)
 4. [How it works](#how-it-works)
 5. [Creating your own rules](#creating-your-own-rules)
@@ -234,9 +121,8 @@ enabled by default:
 
 ## Requirements
 
-- python (3.5+)
-- pip
-- python-dev
+- Python 3.8+
+- pip or pipx (recommended)
 
 ##### [Back to Contents](#contents)
 
@@ -252,7 +138,7 @@ On Ubuntu / Mint, install *The Fuck* with the following commands:
 ```bash
 sudo apt update
 sudo apt install python3-dev python3-pip python3-setuptools
-pip3 install thefuck --user
+pip3 install git+https://github.com/DRSDavidSoft/thefuck --user
 ```
 
 On FreeBSD, install *The Fuck* with the following commands:
@@ -273,7 +159,7 @@ sudo pacman -S thefuck
 On other systems, install *The Fuck*  by using `pip`:
 
 ```bash
-pip install thefuck
+pip install git+https://github.com/DRSDavidSoft/thefuck
 ```
 
 [Alternatively, you may use an OS package manager (OS X, Ubuntu, Arch).](https://github.com/nvbn/thefuck/wiki/Installation)
@@ -310,7 +196,7 @@ fuck -r
 ## Updating
 
 ```bash
-pip3 install thefuck --upgrade
+pip3 install --upgrade git+https://github.com/DRSDavidSoft/thefuck
 ```
 
 **Note: Alias functionality was changed in v1.34 of *The Fuck***
